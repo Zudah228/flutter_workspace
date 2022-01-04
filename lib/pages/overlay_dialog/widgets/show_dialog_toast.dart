@@ -5,7 +5,7 @@ Future<void> showNavigatorToast(BuildContext context) async {
   try {
     await showDialog(
       context: context,
-      builder: (_) => const NavigatorToast()
+      builder: (_) => const _Toast()
     ).timeout(const Duration(seconds: 2));
 
   } on TimeoutException {
@@ -13,8 +13,8 @@ Future<void> showNavigatorToast(BuildContext context) async {
   }
 }
 
-class NavigatorToast extends StatelessWidget {
-  const NavigatorToast({Key? key}) : super(key: key);
+class _Toast extends StatelessWidget {
+  const _Toast({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

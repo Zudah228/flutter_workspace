@@ -6,6 +6,8 @@ final _overlayEntry = OverlayEntry(
 );
 
 void showOverlayToast(BuildContext context) {
+  if (_overlayEntry.mounted) _overlayEntry.remove();
+
   Navigator.of(context).overlay?.insert(_overlayEntry);
 
   Timer(const Duration(seconds: 2), () {

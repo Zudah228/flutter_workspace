@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             _NavigateButton(
-              btnText: '自動で閉じるダイアログ',
+              btnText: '2022/1/3 自動で閉じるダイアログ',
               page: OverlayDialogPage())
           ],
         ),

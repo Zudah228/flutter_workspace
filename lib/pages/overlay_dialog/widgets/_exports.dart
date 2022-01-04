@@ -1,4 +1,4 @@
-export 'navigator_toast.dart';
+export 'show_dialog_toast.dart';
 export 'overlay_toast.dart';
 export 'overlay_toast_bottom.dart';
 export 'overlay_toast_animated_bottom.dart';

@@ -1,1 +1,1 @@
-export 'overlay_dialog/overlay_dialog_page.dart';
+export 'auto_dispose_dialog/auto_dispose_dialog_page.dart';

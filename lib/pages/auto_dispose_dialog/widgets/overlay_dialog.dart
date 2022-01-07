@@ -5,7 +5,7 @@ final _overlayEntry = OverlayEntry(
   builder: (_) => const OverlayToast(),
 );
 
-void showOverlayToast(BuildContext context) {
+void showOverlayDialog(BuildContext context) {
   if (_overlayEntry.mounted) _overlayEntry.remove();
 
   Navigator.of(context).overlay?.insert(_overlayEntry);

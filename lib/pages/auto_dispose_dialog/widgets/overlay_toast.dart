@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 final _overlayEntry =
-    OverlayEntry(builder: (_) => const OverlayToastAnimatedBottom());
+    OverlayEntry(builder: (_) => const _Toast());
 
-void showOverlayToastAnimatedBottom(BuildContext context) {
+void showToast(BuildContext context) {
   if (_overlayEntry.mounted) _overlayEntry.remove();
 
   Navigator.of(context).overlay?.insert(_overlayEntry);
@@ -14,15 +14,15 @@ void showOverlayToastAnimatedBottom(BuildContext context) {
   });
 }
 
-class OverlayToastAnimatedBottom extends StatefulWidget {
-  const OverlayToastAnimatedBottom({Key? key}) : super(key: key);
+class _Toast extends StatefulWidget {
+  const _Toast({Key? key}) : super(key: key);
 
   @override
-  State<OverlayToastAnimatedBottom> createState() =>
-      _OverlayToastAnimatedBottomState();
+  State<_Toast> createState() =>
+      _ToastState();
 }
 
-class _OverlayToastAnimatedBottomState extends State<OverlayToastAnimatedBottom>
+class _ToastState extends State<_Toast>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
@@ -42,7 +42,7 @@ class _OverlayToastAnimatedBottomState extends State<OverlayToastAnimatedBottom>
      TweenSequenceItem(
        tween: Tween(begin: const Alignment(0.0, 0.9), end: const Alignment(0.0, 2.0),)
            .chain(CurveTween(curve: Curves.fastLinearToSlowEaseIn)),
-       weight: 4,
+       weight: 2,
      ),
    ]);
 

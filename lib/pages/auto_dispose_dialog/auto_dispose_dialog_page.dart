@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_workspace/pages/overlay_dialog/widgets/_exports.dart';
-import 'package:flutter_workspace/pages/overlay_dialog/widgets/flutter_toast_alert_dialog.dart';
+import 'package:flutter_workspace/pages/auto_dispose_dialog/widgets/_exports.dart';
 
 class OverlayDialogPage extends StatefulWidget {
   const OverlayDialogPage({Key? key}) : super(key: key);
@@ -43,7 +42,7 @@ class _OverlayDialogPageState extends State<OverlayDialogPage> {
             ElevatedButton(
               child: const Text('AlertDialog'),
               onPressed: () {
-                showOverlayToast(context);
+                showOverlayDialog(context);
               },
             ),
             ElevatedButton(
@@ -55,7 +54,7 @@ class _OverlayDialogPageState extends State<OverlayDialogPage> {
             ElevatedButton(
               child: const Text('アニメーション付き bottom popup'),
               onPressed: () {
-                showOverlayToastAnimatedBottom(context);
+                showToast(context);
               },
             ),
           

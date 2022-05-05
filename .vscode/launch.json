@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--debug",
+            ]
+        },
+        {
             "name": "Run dev debug",
             "request": "launch",
             "type": "dart",

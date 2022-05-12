@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 const _uuid = Uuid();
-final todosProvider = StateNotifierProvider<TodoPageNotifier, List<Todo>>(
+final todosProvider = StateNotifierProvider.autoDispose<TodoPageNotifier, List<Todo>>(
     ((ref) => TodoPageNotifier(ref.read, [])));
 
 class TodoPageNotifier extends StateNotifier<List<Todo>> {

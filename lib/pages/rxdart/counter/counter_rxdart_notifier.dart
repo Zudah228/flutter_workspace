@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_workspace/common/entities/counter/counter.dart';
-import 'package:flutter_workspace/common/repositories/firebase_firestore_repository.dart';
+import 'package:flutter_workspace/common/repositories/firestore/document_repository.dart';
+import 'package:flutter_workspace/common/utils/logger.dart';
 import 'package:flutter_workspace/pages/rxdart/counter/states/counter_rxdart_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:rxdart/rxdart.dart';
@@ -40,7 +41,7 @@ class CounterRxdartPageNotifier extends StateNotifier<CounterRxdartState> {
         );
       }
     } catch (e) {
-      print('counter fetch失敗');
+      Logger().log('counter fetch失敗');
     }
   }
 
@@ -59,8 +60,8 @@ class CounterRxdartPageNotifier extends StateNotifier<CounterRxdartState> {
       try {
         _snapshotController.add(Counter.fromJson(event.data()!).count);
       } catch (e) {
-        print(e);
-        print('counter stream取得失敗');
+        Logger().log(e.toString());
+        Logger().log('counter stream取得失敗');
       }
     });
   }

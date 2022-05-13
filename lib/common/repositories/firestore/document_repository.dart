@@ -64,6 +64,10 @@ class DocumentRepository {
     );
   }
 
+  Future<void> delete(String documentPath) async {
+    await _firestore.doc(documentPath).delete();
+  }
+
   Stream<DocumentSnapshot<SnapType>> snapshots(String documentPath) =>
       _firestore.doc(documentPath).snapshots();
 

@@ -9,15 +9,22 @@ part of 'todo.dart';
 _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
       todoId: json['todoId'] as String,
       title: json['title'] as String,
-      isDone: json['isDone'] as bool,
-      createdAt: const DateTimeTimestampConverter()
-          .fromJson(json['createdAt'] as Timestamp),
+      isCompleted: json['isCompleted'] as bool,
+      colorCategory:
+          $enumDecode(_$TodoColorCategoryEnumMap, json['colorCategory']),
+      createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
 Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
       'todoId': instance.todoId,
       'title': instance.title,
-      'isDone': instance.isDone,
-      'createdAt':
-          const DateTimeTimestampConverter().toJson(instance.createdAt),
+      'isCompleted': instance.isCompleted,
+      'colorCategory': _$TodoColorCategoryEnumMap[instance.colorCategory],
+      'createdAt': instance.createdAt.toIso8601String(),
     };
+
+const _$TodoColorCategoryEnumMap = {
+  TodoColorCategory.red: 'red',
+  TodoColorCategory.blue: 'blue',
+  TodoColorCategory.green: 'green',
+};

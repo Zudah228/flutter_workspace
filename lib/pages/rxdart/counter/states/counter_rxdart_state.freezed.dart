@@ -89,8 +89,8 @@ class __$CounterRxdartStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CounterRxdartState implements _CounterRxdartState {
-  _$_CounterRxdartState({this.count = 0});
+class _$_CounterRxdartState extends _CounterRxdartState {
+  _$_CounterRxdartState({this.count = 0}) : super._();
 
   @override
   @JsonKey()
@@ -119,8 +119,9 @@ class _$_CounterRxdartState implements _CounterRxdartState {
       __$CounterRxdartStateCopyWithImpl<_CounterRxdartState>(this, _$identity);
 }
 
-abstract class _CounterRxdartState implements CounterRxdartState {
+abstract class _CounterRxdartState extends CounterRxdartState {
   factory _CounterRxdartState({final int count}) = _$_CounterRxdartState;
+  _CounterRxdartState._() : super._();
 
   @override
   int get count => throw _privateConstructorUsedError;

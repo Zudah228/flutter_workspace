@@ -1,4 +1,5 @@
 import 'package:flutter_workspace/common/converters/date_time_timestamp_converter.dart';
+import 'package:flutter_workspace/common/entities/todo/todo_color_category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'todo.freezed.dart';
@@ -10,7 +11,8 @@ class Todo with _$Todo {
   factory Todo({
     required String todoId,
     required String title,
-    required bool isDone,
+    required bool isCompleted,
+    required TodoColorCategory colorCategory,
     @DateTimeTimestampConverter() required DateTime createdAt,
   }) = _Todo;
 

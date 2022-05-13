@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Todo _$TodoFromJson(Map<String, dynamic> json) {
-  return _Todo.fromJson(json);
+LocalJsonTodo _$LocalJsonTodoFromJson(Map<String, dynamic> json) {
+  return _LocalJsonTodo.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Todo {
+mixin _$LocalJsonTodo {
   String get todoId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   bool get isDone => throw _privateConstructorUsedError;
@@ -27,13 +27,15 @@ mixin _$Todo {
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
+  $LocalJsonTodoCopyWith<LocalJsonTodo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TodoCopyWith<$Res> {
-  factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
-      _$TodoCopyWithImpl<$Res>;
+abstract class $LocalJsonTodoCopyWith<$Res> {
+  factory $LocalJsonTodoCopyWith(
+          LocalJsonTodo value, $Res Function(LocalJsonTodo) then) =
+      _$LocalJsonTodoCopyWithImpl<$Res>;
   $Res call(
       {String todoId,
       String title,
@@ -42,12 +44,13 @@ abstract class $TodoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
-  _$TodoCopyWithImpl(this._value, this._then);
+class _$LocalJsonTodoCopyWithImpl<$Res>
+    implements $LocalJsonTodoCopyWith<$Res> {
+  _$LocalJsonTodoCopyWithImpl(this._value, this._then);
 
-  final Todo _value;
+  final LocalJsonTodo _value;
   // ignore: unused_field
-  final $Res Function(Todo) _then;
+  final $Res Function(LocalJsonTodo) _then;
 
   @override
   $Res call({
@@ -78,9 +81,11 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
-  factory _$TodoCopyWith(_Todo value, $Res Function(_Todo) then) =
-      __$TodoCopyWithImpl<$Res>;
+abstract class _$LocalJsonTodoCopyWith<$Res>
+    implements $LocalJsonTodoCopyWith<$Res> {
+  factory _$LocalJsonTodoCopyWith(
+          _LocalJsonTodo value, $Res Function(_LocalJsonTodo) then) =
+      __$LocalJsonTodoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String todoId,
@@ -90,13 +95,15 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
-    implements _$TodoCopyWith<$Res> {
-  __$TodoCopyWithImpl(_Todo _value, $Res Function(_Todo) _then)
-      : super(_value, (v) => _then(v as _Todo));
+class __$LocalJsonTodoCopyWithImpl<$Res>
+    extends _$LocalJsonTodoCopyWithImpl<$Res>
+    implements _$LocalJsonTodoCopyWith<$Res> {
+  __$LocalJsonTodoCopyWithImpl(
+      _LocalJsonTodo _value, $Res Function(_LocalJsonTodo) _then)
+      : super(_value, (v) => _then(v as _LocalJsonTodo));
 
   @override
-  _Todo get _value => super._value as _Todo;
+  _LocalJsonTodo get _value => super._value as _LocalJsonTodo;
 
   @override
   $Res call({
@@ -105,7 +112,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? isDone = freezed,
     Object? createdAt = freezed,
   }) {
-    return _then(_Todo(
+    return _then(_LocalJsonTodo(
       todoId: todoId == freezed
           ? _value.todoId
           : todoId // ignore: cast_nullable_to_non_nullable
@@ -128,15 +135,16 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_Todo extends _Todo {
-  _$_Todo(
+class _$_LocalJsonTodo extends _LocalJsonTodo {
+  _$_LocalJsonTodo(
       {required this.todoId,
       required this.title,
       required this.isDone,
       @DateTimeIsoStringConverter() required this.createdAt})
       : super._();
 
-  factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
+  factory _$_LocalJsonTodo.fromJson(Map<String, dynamic> json) =>
+      _$$_LocalJsonTodoFromJson(json);
 
   @override
   final String todoId;
@@ -152,7 +160,7 @@ class _$_Todo extends _Todo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Todo &&
+            other is _LocalJsonTodo &&
             const DeepCollectionEquality().equals(other.todoId, todoId) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.isDone, isDone) &&
@@ -170,20 +178,21 @@ class _$_Todo extends _Todo {
 
   @JsonKey(ignore: true)
   @override
-  _$TodoCopyWith<_Todo> get copyWith =>
-      __$TodoCopyWithImpl<_Todo>(this, _$identity);
+  _$LocalJsonTodoCopyWith<_LocalJsonTodo> get copyWith =>
+      __$LocalJsonTodoCopyWithImpl<_LocalJsonTodo>(this, _$identity);
 }
 
-abstract class _Todo extends Todo {
-  factory _Todo(
+abstract class _LocalJsonTodo extends LocalJsonTodo {
+  factory _LocalJsonTodo(
           {required final String todoId,
           required final String title,
           required final bool isDone,
           @DateTimeIsoStringConverter() required final DateTime createdAt}) =
-      _$_Todo;
-  _Todo._() : super._();
+      _$_LocalJsonTodo;
+  _LocalJsonTodo._() : super._();
 
-  factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
+  factory _LocalJsonTodo.fromJson(Map<String, dynamic> json) =
+      _$_LocalJsonTodo.fromJson;
 
   @override
   String get todoId => throw _privateConstructorUsedError;
@@ -196,5 +205,6 @@ abstract class _Todo extends Todo {
   DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;
+  _$LocalJsonTodoCopyWith<_LocalJsonTodo> get copyWith =>
+      throw _privateConstructorUsedError;
 }

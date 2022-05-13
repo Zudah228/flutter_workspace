@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_workspace/home_page.dart';
+import 'package:flutter_workspace/common/utils/logger.dart';
+import 'package:flutter_workspace/pages/home_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() async {
@@ -9,7 +10,7 @@ void main() async {
     Firebase.initializeApp(),
   ]);
 
-  print('Firebase App: ${Firebase.apps.first.options.projectId}');
+  Logger().log('Firebase App: ${Firebase.apps.first.options.projectId}');
 
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }

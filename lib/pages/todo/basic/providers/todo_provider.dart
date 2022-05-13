@@ -1,14 +1,16 @@
-import 'package:flutter_workspace/common/bundle_repository.dart';
-import 'package:flutter_workspace/common/entities/todo/todo.dart';
+import 'package:flutter_workspace/common/repositories/bundle_repository.dart';
+import 'package:flutter_workspace/common/utils/logger.dart';
+import 'package:flutter_workspace/pages/todo/basic/entities/todo.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 const _uuid = Uuid();
-final todosProvider = StateNotifierProvider.autoDispose<TodoPageNotifier, List<Todo>>(
-    ((ref) => TodoPageNotifier(ref.read, [])));
+final todosProvider =
+    StateNotifierProvider.autoDispose<TodoPageNotifier, List<LocalJsonTodo>>(
+        ((ref) => TodoPageNotifier(ref.read, [])));
 
-class TodoPageNotifier extends StateNotifier<List<Todo>> {
-  TodoPageNotifier(this.read, List<Todo>? initialTodos)
+class TodoPageNotifier extends StateNotifier<List<LocalJsonTodo>> {
+  TodoPageNotifier(this.read, List<LocalJsonTodo>? initialTodos)
       : super(initialTodos ?? []);
   final Reader read;
   late final bundleRepository = read(bundleRepositoryProvider);
@@ -16,22 +18,20 @@ class TodoPageNotifier extends StateNotifier<List<Todo>> {
   Future<void> fetch() async {
     try {
       final json = await bundleRepository.fetch('assets/json/todo.json');
+  
       if (json != null) {
-        final todo = Todo.fromJson(json);
-        state = [
-          ...state,
-          todo
-        ];
+        final todo = LocalJsonTodo.fromJson(json);
+        state = [...state, todo];
       }
     } catch (e) {
-      print(e);
+      Logger().log(e.toString());
     }
   }
 
   void add(String title) {
     state = [
       ...state,
-      Todo(
+      LocalJsonTodo(
         todoId: _uuid.v4(),
         title: title,
         isDone: false,

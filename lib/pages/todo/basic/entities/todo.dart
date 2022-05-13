@@ -5,15 +5,15 @@ part 'todo.freezed.dart';
 part 'todo.g.dart';
 
 @Freezed(toJson: false, toStringOverride: false)
-class Todo with _$Todo {
-  const Todo._();
-  factory Todo({
+class LocalJsonTodo with _$LocalJsonTodo {
+  const LocalJsonTodo._();
+  factory LocalJsonTodo({
     required String todoId,
     required String title,
     required bool isDone,
     @DateTimeIsoStringConverter() required DateTime createdAt,
-  }) = _Todo;
+  }) = _LocalJsonTodo;
 
-  factory Todo.fromJson(Map<String, dynamic> json) =>
-			_$TodoFromJson(json);
+  factory LocalJsonTodo.fromJson(Map<String, dynamic> json) =>
+			_$LocalJsonTodoFromJson(json);
 }

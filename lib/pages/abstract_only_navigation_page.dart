@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_workspace/pages/home_page.dart';
 
 @immutable
-class AbstractOnlyNavigationPage extends StatelessWidget {
+abstract class AbstractOnlyNavigationPage extends StatelessWidget {
   const AbstractOnlyNavigationPage({required this.pages}) : super(key: null);
   final List<NavigationPage> pages;
 
@@ -15,12 +15,15 @@ class AbstractOnlyNavigationPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: pages.map((e) => _NavigateButton(btnText: e.title, page: e.page)).toList(),
+          children: pages
+              .map((e) => _NavigateButton(btnText: e.title, page: e.page))
+              .toList(),
         ),
       ),
     );
   }
 }
+
 class _NavigateButton extends StatelessWidget {
   const _NavigateButton({
     Key? key,
@@ -33,13 +36,13 @@ class _NavigateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return ElevatedButton(
-        child: Text(btnText),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => page),
-          );
-        },
-      );
+    return ElevatedButton(
+      child: Text(btnText),
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => page),
+        );
+      },
+    );
   }
 }

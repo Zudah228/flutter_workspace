@@ -24,6 +24,7 @@ mixin _$Todo {
   String get title => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
   TodoColorCategory get colorCategory => throw _privateConstructorUsedError;
+  @DateTimeTimestampConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $TodoCopyWith<$Res> {
       String title,
       bool isCompleted,
       TodoColorCategory colorCategory,
-      DateTime createdAt});
+      @DateTimeTimestampConverter() DateTime createdAt});
 }
 
 /// @nodoc
@@ -94,7 +95,7 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       String title,
       bool isCompleted,
       TodoColorCategory colorCategory,
-      DateTime createdAt});
+      @DateTimeTimestampConverter() DateTime createdAt});
 }
 
 /// @nodoc
@@ -147,7 +148,7 @@ class _$_Todo extends _Todo {
       required this.title,
       required this.isCompleted,
       required this.colorCategory,
-      required this.createdAt})
+      @DateTimeTimestampConverter() required this.createdAt})
       : super._();
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
@@ -161,6 +162,7 @@ class _$_Todo extends _Todo {
   @override
   final TodoColorCategory colorCategory;
   @override
+  @DateTimeTimestampConverter()
   final DateTime createdAt;
 
   @override
@@ -200,11 +202,12 @@ class _$_Todo extends _Todo {
 
 abstract class _Todo extends Todo {
   factory _Todo(
-      {required final String todoId,
-      required final String title,
-      required final bool isCompleted,
-      required final TodoColorCategory colorCategory,
-      required final DateTime createdAt}) = _$_Todo;
+          {required final String todoId,
+          required final String title,
+          required final bool isCompleted,
+          required final TodoColorCategory colorCategory,
+          @DateTimeTimestampConverter() required final DateTime createdAt}) =
+      _$_Todo;
   _Todo._() : super._();
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
@@ -218,6 +221,7 @@ abstract class _Todo extends Todo {
   @override
   TodoColorCategory get colorCategory => throw _privateConstructorUsedError;
   @override
+  @DateTimeTimestampConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

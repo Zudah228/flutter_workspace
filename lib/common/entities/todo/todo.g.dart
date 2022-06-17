@@ -12,7 +12,8 @@ _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
       isCompleted: json['isCompleted'] as bool,
       colorCategory:
           $enumDecode(_$TodoColorCategoryEnumMap, json['colorCategory']),
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdAt: const DateTimeTimestampConverter()
+          .fromJson(json['createdAt'] as Timestamp),
     );
 
 Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
@@ -20,7 +21,8 @@ Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
       'title': instance.title,
       'isCompleted': instance.isCompleted,
       'colorCategory': _$TodoColorCategoryEnumMap[instance.colorCategory],
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt':
+          const DateTimeTimestampConverter().toJson(instance.createdAt),
     };
 
 const _$TodoColorCategoryEnumMap = {

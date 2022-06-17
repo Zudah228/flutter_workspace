@@ -16,6 +16,7 @@ class Todo with _$Todo {
     @DateTimeTimestampConverter() required DateTime createdAt,
   }) = _Todo;
 
-  factory Todo.fromJson(Map<String, dynamic> json) =>
-			_$TodoFromJson(json);
+  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
+
+  static get sqflitePath => 'todos';
 }

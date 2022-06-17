@@ -19,16 +19,10 @@ void main() async {
 
   Logger().log('Firebase App: ${Firebase.apps.first.options.projectId}');
 
-  runApp(
-    ProviderScope(
-      overrides: [
-        todoSqfliteProvider.overrideWithValue(
-          SqfliteRepository<Todo>(db, decode: Todo.fromJson)
-        ),
-      ],
-      child: const MyApp()
-    )
-  );
+  runApp(ProviderScope(overrides: [
+    todoSqfliteProvider
+        .overrideWithValue(SqfliteRepository<Todo>(db, decode: Todo.fromJson)),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

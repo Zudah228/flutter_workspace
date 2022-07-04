@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_workspace/pages/abstract_only_navigation_page.dart';
 import 'package:flutter_workspace/pages/_exports.dart';
 import 'package:flutter_workspace/pages/form_field_key_workspace/form_field_key_workspace_page.dart';
+import 'package:flutter_workspace/pages/type_guard/type_guard_page.dart';
 
 @immutable
 class NavigationPage {
@@ -16,6 +17,7 @@ class MyHomePage extends AbstractOnlyNavigationPage {
       NavigationPage(page: TodoPage(), title: '2022/4/20 Todoページ'),
       const NavigationPage(page: RxdartPage(), title: '2022/4/27 Rxdartページ'),
       const NavigationPage(page: FormFieldKeyWorkspacePage(), title: '2022/6/17 FormFieldState Key ページ'),
+      const NavigationPage(title: '2022/6/28 `is` による TypeGuard の挙動チェック', page: TypeGuardPage())
     ]);
 
 }

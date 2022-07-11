@@ -5,6 +5,8 @@ import 'package:flutter_workspace/pages/check_email_verification/check_email_ver
 import 'package:flutter_workspace/pages/form_field_key_workspace/form_field_key_workspace_page.dart';
 import 'package:flutter_workspace/pages/type_guard/type_guard_page.dart';
 
+import 'date_picker/date_picker.dart';
+
 @immutable
 class NavigationPage {
   const NavigationPage({required this.title, required this.page});
@@ -19,7 +21,8 @@ class MyHomePage extends AbstractOnlyNavigationPage {
       const NavigationPage(page: RxdartPage(), title: '2022/4/27 Rxdartページ'),
       const NavigationPage(page: FormFieldKeyWorkspacePage(), title: '2022/6/17 FormFieldState Key ページ'),
       const NavigationPage(title: '2022/6/28 `is` による TypeGuard の挙動チェック', page: TypeGuardPage()),
-      const NavigationPage(title: '2022/7/4 Firebase Auth の email verification を監視する', page: CheckEmailVerificationPage())
+      const NavigationPage(title: '2022/7/4 Firebase Auth の email verification を監視する', page: CheckEmailVerificationPage()),
+      const NavigationPage(title: '2022/7/11 いろんな DatePicker', page: DatePickerWorkspacePage())
     ]);
 
 }

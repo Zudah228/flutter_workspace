@@ -5,6 +5,7 @@ import 'package:flutter_workspace/common/repositories/sqflite/sqflite_repository
 import 'package:flutter_workspace/common/utils/logger.dart';
 import 'package:flutter_workspace/pages/home_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:sqflite/sqflite.dart';
 
 void main() async {
@@ -16,6 +17,8 @@ void main() async {
       db = await openDatabase(Todo.sqflitePath);
     })
   ]);
+
+  initializeDateFormatting('ja');
 
   Logger().log('Firebase App: ${Firebase.apps.first.options.projectId}');
 

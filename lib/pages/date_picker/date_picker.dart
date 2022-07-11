@@ -18,9 +18,23 @@ class DatePickerWorkspacePage extends HookConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              '選択された日付',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  '選択された日付',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                TextButton(
+                  onPressed: 
+                  selectedDate.value == null && selectedEndDate.value == null
+                  ? null
+                  : () {
+                    selectedDate.value = null;
+                    selectedEndDate.value = null;
+                },
+                child: const Text('リセット'))
+              ],
             ),
             Text(
               selectedDate.value?.format(

@@ -1,7 +1,5 @@
 import 'dart:async';
 
-// ignore: depend_on_referenced_packages
-import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

@@ -20,23 +20,5 @@
                 "--dart-define=FLAVOR=dev"
             ]
         },
-        {
-            "name": "Run stg debug",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--debug",
-                "--dart-define=FLAVOR=stg"
-            ]
-        },
-        {
-            "name": "Run prod debug",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--debug",
-                "--dart-define=FLAVOR=prod"
-            ]
-        }
     ]
 }

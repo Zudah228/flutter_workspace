@@ -7,9 +7,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'auth_state_change.dart';
 
-const _email = String.fromEnvironment('EMAIL');
-const _password = String.fromEnvironment('PASSWORD');
-
 class CheckEmailVerificationPage extends HookConsumerWidget {
   const CheckEmailVerificationPage({Key? key}) : super(key: key);
   @override
@@ -17,6 +14,9 @@ class CheckEmailVerificationPage extends HookConsumerWidget {
     final auth = ref.read(firebaseAuthRepositoryProvider);
     final userNotifier = ref.watch(authStateChange.notifier);
     final user = ref.watch(authStateChange);
+
+    final email = useTextEditingController();
+    final password = useTextEditingController();
 
     useEffect(() {
       userNotifier();
@@ -30,6 +30,14 @@ class CheckEmailVerificationPage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            TextField(
+              controller: email,
+              decoration: const InputDecoration(hintText: 'password'),
+            ),
+            TextField(
+              controller: password,
+              decoration: const InputDecoration(hintText: 'email'),
+            ),
             Text(user == null ? 'サインインしていない' : 'サインイン済み'),
             Text('uid: ${user?.uid}'),
             Text('email verified: ${user?.emailVerified}'),
@@ -44,14 +52,20 @@ class CheckEmailVerificationPage extends HookConsumerWidget {
                       // 新規作成→すでに存在→サインイン
                       try {
                         credential = await auth.createUserWithEmailAndPassword(
-                            _email, _password);
+                            email.text, password.text);
                       } on FirebaseException catch (e) {
                         if (e.code == 'email-already-in-use') {
                           credential = await auth.signInWithEmailAndPassword(
-                              _email, _password);
+                              email.text, password.text);
+                          return;
                         }
+                        rethrow;
+                      } on Exception catch (e) {
+                        context.showSnackBar(e.toString());
+                        print(e);
+                        return;
                       }
-                      context.showSnackBar('サインイン成功: ${credential?.user?.uid}');
+                      context.showSnackBar('サインイン成功: ${credential.user?.uid}');
                     },
               child: const Text('サインイン'),
             ),

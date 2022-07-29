@@ -4,6 +4,7 @@ import 'package:flutter_workspace/pages/form_field_key_workspace/common/form_fie
 import 'package:flutter_workspace/pages/form_field_key_workspace/common/form_field_key_hooks.dart';
 import 'package:flutter_workspace/pages/form_field_key_workspace/common/validator.dart';
 
+// TODO: resize 以外でキーボード表示時のオーバーフローを治す
 // TODO: 実際にプロダクトで動かすイメージのページを作る
 // 案１： 一度 submit ボタンを押すと isReactive が tue になる
 // 案2: パスワードの強度チェックをする
@@ -13,6 +14,7 @@ class FormFieldKeyWorkspacePage extends HookWidget {
   Widget build(BuildContext context) {
     final validator = Validator();
     final formKey = useFormFieldKey();
+    final focusNode = useFocusNode();
     final output = useState('');
     final isReactive = useState(false);
 
@@ -37,19 +39,20 @@ class FormFieldKeyWorkspacePage extends HookWidget {
               style: TextStyle(fontSize: 16),
             ),
             output.value.isEmpty
-            ? Text(
-              'なし',
-              style: TextStyle(color: Colors.grey[300], fontSize: 64),
-            )
-            : Text(
-              output.value,
-              style: const TextStyle(fontSize: 64),
-            ),
+                ? Text(
+                    'なし',
+                    style: TextStyle(color: Colors.grey[300], fontSize: 64),
+                  )
+                : Text(
+                    output.value,
+                    style: const TextStyle(fontSize: 64),
+                  ),
             const SizedBox(
               height: 82,
             ),
             TextFormField(
               key: formKey,
+              focusNode: focusNode,
               validator: validator.requiredValidator,
               onChanged: isReactive.value ? (_) => formKey.validate() : null,
               onFieldSubmitted: (_) => submit(),
@@ -63,9 +66,7 @@ class FormFieldKeyWorkspacePage extends HookWidget {
               children: [
                 OutlinedButton(
                     onPressed: formKey.clear, child: const Text('Clear')),
-                ElevatedButton(
-                    onPressed: submit,
-                    child: const Text('Submit')),
+                ElevatedButton(onPressed: submit, child: const Text('Submit')),
               ],
             ),
             const SizedBox(

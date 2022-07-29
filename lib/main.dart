@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_workspace/common/entities/todo/todo.dart';
 import 'package:flutter_workspace/common/repositories/sqflite/sqflite_repository.dart';
 import 'package:flutter_workspace/common/utils/logger.dart';
@@ -29,12 +28,15 @@ void main() async {
   ], child: const MyApp()));
 }
 
+final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,

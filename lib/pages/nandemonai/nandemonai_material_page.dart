@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NandemonaiPage extends StatelessWidget {
-  const NandemonaiPage({Key? key, this.onPressed, this.btnText})
+class NandemonaiMaterialPage extends StatelessWidget {
+  const NandemonaiMaterialPage({Key? key, this.onPressed, this.btnText})
       : super(key: key);
 
   final void Function(BuildContext)? onPressed;
@@ -10,21 +10,19 @@ class NandemonaiPage extends StatelessWidget {
   static Route route(
           {void Function(BuildContext)? onPressed, String? btnText}) =>
       MaterialPageRoute<void>(
-          builder: (context) => NandemonaiPage(
+          builder: (context) => NandemonaiMaterialPage(
                 btnText: btnText,
                 onPressed: onPressed,
               ));
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ここは、何でもないページ'),
-      ),
-      body: Center(
+    return Material(
+      child: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          TextButton(onPressed: () {Navigator.of(context).pop();}, child: const Text('戻る')),
           const Text('ナンでもない'),
           const Text('NaN でもない'),
           if (btnText != null) ...[

@@ -12,12 +12,21 @@ abstract class AbstractOnlyNavigationPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Todo Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: pages
-              .map((e) => _NavigateButton(btnText: e.title, page: e.page))
-              .toList(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (final e in pages)
+                ...[
+                  _NavigateButton(btnText: e.title, page: e.page),
+                  const SizedBox(height: 8,)
+                ]
+              ],
+          ),
         ),
       ),
     );
@@ -36,13 +45,16 @@ class _NavigateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: Text(btnText),
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => page),
-        );
-      },
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        child: Text(btnText),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => page),
+          );
+        },
+      ),
     );
   }
 }

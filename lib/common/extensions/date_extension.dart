@@ -10,10 +10,12 @@ extension DateExtension on DateTime {
       {String pattern = 'yyyy/MM/dd/',
       String locale = 'ja_JP',
       bool useJapaneseEra = false}) {
-  if (useJapaneseEra) {
-    pattern = pattern.replaceAll(RegExp(r'^y+'), '');
-  }
-    return '$convertJapaneseYear${DateFormat(pattern, locale).format(this)}';
+    var str = '';
+    if (useJapaneseEra) {
+      pattern = pattern.replaceAll(RegExp(r'^y+'), '');
+      str += convertJapaneseYear;
+    }
+    return '$str${DateFormat(pattern, locale).format(this)}';
   }
 
   String get convertJapaneseYear {

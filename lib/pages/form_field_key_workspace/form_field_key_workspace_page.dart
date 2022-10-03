@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_workspace/pages/form_field_key_workspace/common/form_field_key_extension.dart';
+import 'package:flutter_workspace/common/extensions/form_field_key_extension.dart';
 import 'package:flutter_workspace/pages/form_field_key_workspace/common/form_field_key_hooks.dart';
 import 'package:flutter_workspace/pages/form_field_key_workspace/common/validator.dart';
 

@@ -31,9 +31,15 @@ extension BuildContextExtension on BuildContext {
   Color get cardColor =>
       isDark ? ThemeData.dark().cardColor : ThemeData.light().cardColor;
 
+  /// 適当に遷移させたい時に使う
+  Future<void> push(Widget page) =>
+      Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));
+
+  Future<void> pop(Widget page) =>
+      Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));
 
   void hideKeyboard() => FocusScope.of(this).unfocus();
-  
+
   void showSnackBar(String text, {Color? backgroundColor}) {
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
@@ -44,7 +50,10 @@ extension BuildContextExtension on BuildContext {
         ),
         duration: const Duration(seconds: 2),
         action: SnackBarAction(
-            label: '閉じる', textColor: Colors.white, onPressed: () {},),
+          label: '閉じる',
+          textColor: Colors.white,
+          onPressed: () {},
+        ),
       ),
     );
   }

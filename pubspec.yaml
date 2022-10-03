@@ -11,9 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Dart の拡張
   cupertino_icons: ^1.0.2
   rxdart: ^0.27.3
 
+  # firebase
   firebase_core: ^1.12.1
   cloud_firestore: ^3.1.13
   firebase_analytics: ^8.3.4
@@ -24,14 +26,17 @@ dependencies:
   firebase_messaging: ^11.2.6
   cloud_functions: ^3.2.13
 
+  # immutable
   freezed_annotation: ^2.0.0
   json_annotation: ^4.4.0
 
   flutter_hooks: ^0.18.0
   hooks_riverpod: ^1.0.0
 
+  # UI
   fluttertoast: ^8.0.8
   syncfusion_flutter_datepicker: ^20.2.36
+  sliver_tools: ^0.2.8
 
   uuid: ^3.0.6
   intl: 0.17.0

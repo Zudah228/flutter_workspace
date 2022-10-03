@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_workspace/common/extensions/date_extension.dart';
 import 'package:flutter_workspace/pages/app_lifecycle/app_lifecycle_page.dart';
 import 'package:flutter_workspace/pages/scaffold_messenger_key/scaffold_messenger_key.dart';
+import 'package:flutter_workspace/pages/sliver_tools/sliver_tools_page.dart';
 
 import '_exports.dart';
 import 'abstract_only_navigation_page.dart';
@@ -41,7 +42,14 @@ class MyHomePage extends AbstractOnlyNavigationPage {
               title: '2022/7/29 フォアグラウンド／バックグラウンドの挙動',
               page: AppLifecyclePage()),
           NavigationPage(
-              title: '${DateTime(2022, 10).format(pattern: 'yy/M:',)} Global の ScaffoldMessenger key ',
+              title: '${DateTime(2022, 10).format(
+                pattern: 'yy/M:',
+              )} Global の ScaffoldMessenger key ',
               page: const ScaffoldMessengerKeyPage()),
+          NavigationPage(
+              title: '${DateTime(2022, 10).format(
+                pattern: 'yy/M:',
+              )} Sliver tools ',
+              page: const SliverToolsPage()),
         ]);
 }

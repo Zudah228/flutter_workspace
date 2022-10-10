@@ -8,6 +8,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:sqflite/sqflite.dart';
 
+import 'common/providers/navigator_key_provider.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   late final Database db;
@@ -30,14 +32,15 @@ void main() async {
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context, ref) {
     return MaterialApp(
       scaffoldMessengerKey: scaffoldMessengerKey,
       title: 'Flutter Demo',
+      navigatorKey: ref.watch(navigatorKeyProvider),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

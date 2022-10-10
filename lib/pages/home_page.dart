@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_workspace/common/extensions/date_extension.dart';
 import 'package:flutter_workspace/pages/app_lifecycle/app_lifecycle_page.dart';
+import 'package:flutter_workspace/pages/best_loading_dialog.dart/best_loading_dialog_page.dart';
 import 'package:flutter_workspace/pages/scaffold_messenger_key/scaffold_messenger_key.dart';
 import 'package:flutter_workspace/pages/sliver_tools/sliver_tools_page.dart';
 
@@ -13,43 +14,80 @@ import 'type_guard/type_guard_page.dart';
 
 @immutable
 class NavigationPage {
-  const NavigationPage({required this.title, required this.page});
-  final String title;
+  const NavigationPage({
+    required this.page,
+    this.title,
+    this.year,
+    this.month,
+    this.day,
+  });
+  final String? title;
   final Widget page;
+  final int? year;
+  final int? month;
+  final int? day;
 }
 
 class MyHomePage extends AbstractOnlyNavigationPage {
   MyHomePage()
       : super(pages: [
           const NavigationPage(
-              page: OverlayDialogPage(), title: '2022/1/3 自動で閉じるダイアログ'),
-          NavigationPage(page: TodoPage(), title: '2022/4/20 Todoページ'),
+              page: OverlayDialogPage(),
+              title: '自動で閉じるダイアログ',
+              year: 2022,
+              month: 1,
+              day: 3),
+          NavigationPage(
+              page: TodoPage(),
+              title: 'Todoページ',
+              year: 2022,
+              month: 4,
+              day: 20),
           const NavigationPage(
-              page: RxdartPage(), title: '2022/4/27 Rxdartページ'),
+              page: RxdartPage(),
+              title: 'Rxdartページ',
+              year: 2022,
+              month: 1,
+              day: 3),
           const NavigationPage(
               page: FormFieldKeyWorkspacePage(),
-              title: '2022/6/17 FormFieldState Key ページ'),
+              title: 'FormFieldState Key ページ',
+              year: 2022,
+              month: 1,
+              day: 3),
           const NavigationPage(
-              title: '2022/6/28 `is` による TypeGuard の挙動チェック',
-              page: TypeGuardPage()),
+              title: '`is` による TypeGuard の挙動チェック',
+              page: TypeGuardPage(),
+              year: 2022,
+              month: 1,
+              day: 3),
           const NavigationPage(
-              title: '2022/7/4 Firebase Auth の email verification を監視する',
-              page: CheckEmailVerificationPage()),
+              title: 'Firebase Auth の email verification を監視する',
+              page: CheckEmailVerificationPage(),
+              year: 2022,
+              month: 1,
+              day: 3),
           const NavigationPage(
-              title: '2022/7/11 いろんな DatePicker',
-              page: DatePickerWorkspacePage()),
+              title: 'いろんな DatePicker',
+              page: DatePickerWorkspacePage(),
+              year: 2022,
+              month: 1,
+              day: 3),
           const NavigationPage(
-              title: '2022/7/29 フォアグラウンド／バックグラウンドの挙動',
-              page: AppLifecyclePage()),
-          NavigationPage(
-              title: '${DateTime(2022, 10).format(
-                pattern: 'yy/M:',
-              )} Global の ScaffoldMessenger key ',
-              page: const ScaffoldMessengerKeyPage()),
-          NavigationPage(
-              title: '${DateTime(2022, 10).format(
-                pattern: 'yy/M:',
-              )} Sliver tools ',
-              page: const SliverToolsPage()),
+              title: 'フォアグラウンド／バックグラウンドの挙動',
+              page: AppLifecyclePage(),
+              year: 2022,
+              month: 1,
+              day: 3),
+          const NavigationPage(
+              title: 'Global の ScaffoldMessenger key ',
+              page: ScaffoldMessengerKeyPage(),
+              year: 2022,
+              month: 6,
+              day: 29),
+          const NavigationPage(
+              page: SliverToolsPage(), year: 2022, month: 10, day: 3),
+          const NavigationPage(
+              page: BestLoadingDialog(), year: 2022, month: 10, day: 10),
         ]);
 }

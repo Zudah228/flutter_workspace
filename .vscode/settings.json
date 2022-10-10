@@ -3,5 +3,9 @@
         "titleBar.inactiveBackground": "#0c8fbb",
         "titleBar.activeBackground": "#0c8fbb"
     },
-    "cSpell.words": ["Mvvm", "Nandemonai"]
+    "cSpell.words": [
+        "Mvvm",
+        "Nandemonai",
+        "unawaited"
+    ]
 }

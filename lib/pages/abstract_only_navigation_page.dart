@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_workspace/common/extensions/date_extension.dart';
 import 'package:flutter_workspace/pages/home_page.dart';
 
 @immutable
@@ -13,19 +14,23 @@ abstract class AbstractOnlyNavigationPage extends StatelessWidget {
         title: const Text('Todo Page'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (final e in pages)
-                ...[
-                  _NavigateButton(btnText: e.title, page: e.page),
-                  const SizedBox(height: 8,)
-                ]
-              ],
+              for (final page in pages) ...[
+                _NavigateButton(
+                    btnText:
+                        '${page.year == null ? '' : DateTime(page.year!, page.month!, page.day!).format(
+                            pattern: 'yy/M/d:',
+                          )} ${page.title ?? page.page.runtimeType}',
+                    page: page.page),
+                const SizedBox(
+                  height: 8,
+                )
+              ]
+            ],
           ),
         ),
       ),

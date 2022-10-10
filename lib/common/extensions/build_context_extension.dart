@@ -35,8 +35,7 @@ extension BuildContextExtension on BuildContext {
   Future<void> push(Widget page) =>
       Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));
 
-  Future<void> pop(Widget page) =>
-      Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));
+  void pop() => Navigator.of(this).pop();
 
   void hideKeyboard() => FocusScope.of(this).unfocus();
 

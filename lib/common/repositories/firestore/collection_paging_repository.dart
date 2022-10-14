@@ -1,31 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../entities/todo/todo.dart';
 import 'document.dart';
-
-final todoCollectionPagingRepositoryProvider = Provider.family
-    .autoDispose<CollectionPagingRepository<Todo>, CollectionParam<Todo>>((ref, query) {
-  return CollectionPagingRepository<Todo>(
-      query: query.query, limit: query.limit, decode: query.decode);
-});
-
-final collectionPagingRepositoryProvider = Provider.family
-    .autoDispose<CollectionPagingRepository, CollectionParam>((ref, query) {
-  return CollectionPagingRepository(
-      query: query.query, limit: query.limit, decode: query.decode);
-});
-
-class CollectionParam<T extends Object> {
-  CollectionParam({
-    required this.query,
-    this.limit,
-    required this.decode,
-  });
-  final Query<Map<String, dynamic>> query;
-  final int? limit;
-  final T Function(Map<String, dynamic>) decode;
-}
 
 class CollectionPagingRepository<T extends Object> {
   CollectionPagingRepository({

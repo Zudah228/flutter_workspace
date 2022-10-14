@@ -1,7 +1,5 @@
-import 'package:flutter_workspace/common/converters/date_time_timestamp_converter.dart';
 import 'package:flutter_workspace/common/entities/todo/todo.dart';
 import 'package:flutter_workspace/common/entities/todo/todo_color_category.dart';
-import 'package:flutter_workspace/common/repositories/firestore/collection_paging_repository.dart';
 import 'package:flutter_workspace/common/repositories/firestore/document_repository.dart';
 import 'package:flutter_workspace/common/utils/logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,15 +15,10 @@ class TodoFromFirestorePageNotifier extends StateNotifier<List<Todo>> {
       : _read = read,
         super(initialTodos ?? []);
   final Reader _read;
-  final String _collectionPath = 'todos';
   String _documentPath(String id) => 'todos/$id';
 
-  late final _collectionRepository = _read(
-      todoCollectionPagingRepositoryProvider(CollectionParam<Todo>(
-          query: FirebaseFirestore.instance
-              .collection(_collectionPath)
-              .orderBy("createdAt"),
-          decode: Todo.fromJson)));
+  late final _collectionRepository =
+      _read(todoCollectionPagingRepositoryProvider);
   late final _documentRepository = _read(firestoreDocumentRepositoryProvider);
 
   Future<void> fetch() async {

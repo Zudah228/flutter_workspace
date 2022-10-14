@@ -6,16 +6,21 @@ class AlertSnackBar extends SnackBar {
     Key? key,
     required String text,
     required VoidCallback hideSnackBar,
-  }) : super(key: key, content: Text(text), duration: const Duration(seconds: 2), action: SnackBarAction(
-        label: '閉じる',
-        textColor: Colors.white,
-        onPressed: hideSnackBar
-      ) );
+    Color? backgroundColor,
+  }) : super(
+            key: key,
+            content: Text(text),
+            duration: const Duration(seconds: 2),
+            action: SnackBarAction(
+                label: '閉じる', textColor: Colors.white, onPressed: hideSnackBar),
+            backgroundColor: backgroundColor);
 
-  static show(ScaffoldMessengerState state, {required String text}) {
+  static void show(ScaffoldMessengerState state,
+      {required String text, Color? backgroundColor}) {
     state.showSnackBar(AlertSnackBar(
       text: text,
       hideSnackBar: state.clearSnackBars,
+      backgroundColor: backgroundColor,
     ));
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_workspace/main.dart';
 import 'package:flutter_workspace/pages/nandemonai/nandemonai_material_page.dart';
 import 'package:flutter_workspace/pages/nandemonai/nandemonai_page.dart';
 import 'package:flutter_workspace/pages/scaffold_messenger_key/widgets/snack_bar.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../app.dart';
 
 class ScaffoldMessengerKeyPage extends HookConsumerWidget {
   const ScaffoldMessengerKeyPage({Key? key}) : super(key: key);

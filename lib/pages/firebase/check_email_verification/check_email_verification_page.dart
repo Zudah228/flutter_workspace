@@ -59,7 +59,8 @@ class CheckEmailVerificationPage extends HookConsumerWidget {
                               email.text, password.text);
                           return;
                         }
-                        rethrow;
+                        print(e);
+                        return;
                       } on Exception catch (e) {
                         context.showSnackBar(e.toString());
                         print(e);

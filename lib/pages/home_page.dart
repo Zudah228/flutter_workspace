@@ -1,7 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_workspace/common/extensions/date_extension.dart';
 import 'package:flutter_workspace/pages/app_lifecycle/app_lifecycle_page.dart';
 import 'package:flutter_workspace/pages/best_loading_dialog.dart/best_loading_dialog_page.dart';
+import 'package:flutter_workspace/pages/firebase/firebase_page.dart';
 import 'package:flutter_workspace/pages/scaffold_messenger_key/scaffold_messenger_key.dart';
 import 'package:flutter_workspace/pages/sliver_tools/sliver_tools_page.dart';
 
@@ -61,12 +62,7 @@ class MyHomePage extends AbstractOnlyNavigationPage {
               year: 2022,
               month: 1,
               day: 3),
-          const NavigationPage(
-              title: 'Firebase Auth の email verification を監視する',
-              page: CheckEmailVerificationPage(),
-              year: 2022,
-              month: 1,
-              day: 3),
+          NavigationPage(page: FirebasePage(), year: 2022, month: 1, day: 3),
           const NavigationPage(
               title: 'いろんな DatePicker',
               page: DatePickerWorkspacePage(),

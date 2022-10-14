@@ -5,6 +5,8 @@ class ManageFirestoreDocumentChange extends HookConsumerWidget {
   const ManageFirestoreDocumentChange({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text(runtimeType.toString())),
+    );
   }
 }

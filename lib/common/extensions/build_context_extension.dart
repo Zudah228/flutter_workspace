@@ -51,7 +51,7 @@ extension BuildContextExtension on BuildContext {
         action: SnackBarAction(
           label: '閉じる',
           textColor: Colors.white,
-          onPressed: () {},
+          onPressed: pop,
         ),
       ),
     );

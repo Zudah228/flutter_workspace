@@ -20,5 +20,16 @@
                 "--dart-define=FLAVOR=dev"
             ]
         },
+        {
+            "name": "Run dev debug Chrome",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--debug",
+                "--dart-define=FLAVOR=dev",
+                "-d", "chrome"
+            ]
+        },
     ]
 }

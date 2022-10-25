@@ -1,15 +1,14 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_workspace/pages/app_lifecycle/app_lifecycle_page.dart';
 import 'package:flutter_workspace/pages/best_loading_dialog.dart/best_loading_dialog_page.dart';
 import 'package:flutter_workspace/pages/firebase/firebase_page.dart';
 import 'package:flutter_workspace/pages/scaffold_messenger_key/scaffold_messenger_key.dart';
 import 'package:flutter_workspace/pages/sliver_tools/sliver_tools_page.dart';
+import 'package:flutter_workspace/pages/visibility/visibility_page.dart';
 
 import '_exports.dart';
 import 'abstract_only_navigation_page.dart';
 import 'date_picker/date_picker.dart';
-import 'firebase/check_email_verification/check_email_verification_page.dart';
 import 'form_field_key_workspace/form_field_key_workspace_page.dart';
 import 'type_guard/type_guard_page.dart';
 
@@ -85,5 +84,7 @@ class MyHomePage extends AbstractOnlyNavigationPage {
               page: SliverToolsPage(), year: 2022, month: 10, day: 3),
           const NavigationPage(
               page: BestLoadingDialog(), year: 2022, month: 10, day: 10),
+          const NavigationPage(
+              page: VisibilityPage(), year: 2022, month: 10, day: 14),
         ]);
 }

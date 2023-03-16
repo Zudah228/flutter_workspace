@@ -13,24 +13,27 @@ abstract class AbstractOnlyNavigationPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Todo Page'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (final page in pages) ...[
-                _NavigateButton(
-                    btnText:
-                        '${page.year == null ? '' : DateTime(page.year!, page.month!, page.day!).format(
-                            pattern: 'yy/M/d:',
-                          )} ${page.title ?? page.page.runtimeType}',
-                    page: page.page),
-                const SizedBox(
-                  height: 8,
-                )
-              ]
-            ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              verticalDirection: VerticalDirection.up,
+              children: [
+                for (final page in pages) ...[
+                  _NavigateButton(
+                      btnText:
+                          '${page.year == null ? '' : DateTime(page.year!, page.month!, page.day!).format(
+                              pattern: 'yy/M/d:',
+                            )} ${page.title ?? page.page.runtimeType}',
+                      page: page.page),
+                  const SizedBox(
+                    height: 8,
+                  )
+                ]
+              ],
+            ),
           ),
         ),
       ),

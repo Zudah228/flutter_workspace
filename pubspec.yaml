@@ -25,6 +25,7 @@ dependencies:
   firebase_dynamic_links: ^4.0.2
   firebase_messaging: ^11.2.6
   cloud_functions: ^3.2.13
+  firebase_in_app_messaging: ^0.6.0+27
 
   # immutable
   freezed_annotation: ^2.0.0
@@ -38,6 +39,7 @@ dependencies:
   syncfusion_flutter_datepicker: ^20.2.36
   sliver_tools: ^0.2.8
   flutter_portal: ^1.1.2
+  google_maps_flutter: ^2.2.5
 
   uuid: ^3.0.6
   intl: 0.17.0

@@ -7,5 +7,6 @@
         "Mvvm",
         "Nandemonai",
         "unawaited"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
